@@ -15,8 +15,9 @@ namespace Exercise1 {
             this.Title = title;
             this.ArtistName = artistname;
             this.Length = length;
-        }    
+        }
 
+       
 
     }
 }
