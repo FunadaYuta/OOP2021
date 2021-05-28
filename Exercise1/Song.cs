@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace Exercise1 {
     class Song {
-        string Title;//歌のタイトル
-        string ArtistName;//アーティスト名
-        int Length;//演奏時間、単位は秒
+
+        public string Title { get; set; }
+        public string ArtistName { get;set; }
+        public int Length { get; set; }
+
+        public Song(string title,string artistname,int length) {
+            this.Title = title;
+            this.ArtistName = artistname;
+            this.Length = length;
+        }    
+
 
     }
 }
