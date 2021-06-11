@@ -9,35 +9,58 @@ namespace Exercise2 {
     class Program {
         static void Main(string[] args) {
 
-            
-
+            //4.2.1
             var YearMonths = new YearMonth[5]{
-                new YearMonth(1980,1),
-                new YearMonth(1990,4),
-                new YearMonth(2000,7),
-                new YearMonth(2010,9),
-                new YearMonth(2020,12),
+                new YearMonth(9999,12),
+                new YearMonth(2100,4),
+                new YearMonth(1400,7),
+                new YearMonth(203110,9),
+                new YearMonth(2001,12),
             };
 
-            foreach(var item in YearMonths) {
-                Console.WriteLine(item.ToString());
-            }
+            //4.2.2
+            Exercise2_2(YearMonths);
 
             Console.WriteLine("-----------------------");
 
-            Is21return(YearMonths);         
+            //4.2.4
+            Exercise2_4(YearMonths);
+
+
+            Console.WriteLine("-----------------------");
+
+            //4.2.5
+            Exercise2_5(YearMonths);
+            
         }
 
-        private static YearMonth Is21return(YearMonth[] yms) {
-            int count = 0;
-            foreach(var item in yms) {
+        
+
+        private static void Exercise2_2(YearMonth[] yearMonths) {
+            foreach (var item in yearMonths) {
+                Console.WriteLine(item);
+            }
+        }
+
+        //4.2.3
+        static YearMonth FindFirst21C(YearMonth[] yms) {
+            foreach (var item in yms) {
                 if (item.Is21Century) {
-                    Console.WriteLine(item);
-                    count++;
+                    return item;
                 }
             }
-            if (count == 0) Console.WriteLine("null");
-            return yms[1];
+            return null;
+        }
+
+        private static void Exercise2_4(YearMonth[] yearMonths) {
+            var Is21Data = yearMonths.Contains(FindFirst21C(yearMonths))
+                ? FindFirst21C(yearMonths).Year.ToString() + "年" : "21世紀のデータはありません";
+            Console.WriteLine(Is21Data);
+        }
+
+        private static void Exercise2_5(YearMonth[] yearMonths) {
+            var OneMonthLater = yearMonths.Select(y => y.AddOneMonth()).OrderBy(x => x.Year).ToArray();
+            foreach (var item in OneMonthLater) Console.WriteLine(item);
         }
     }
 }
