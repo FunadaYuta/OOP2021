@@ -36,11 +36,7 @@ namespace Test02 {
         //問題１　合計値を表示
         //　　　　出力結果【618】
         private static void Exercise01(List<int> numbers) {
-            int sum = 0;
-            foreach(var item in numbers) {
-                sum += item;
-            }
-            Console.WriteLine(sum);
+            Console.WriteLine(numbers.Sum());
         }
 
         //問題２　偶数の最大値を表示
