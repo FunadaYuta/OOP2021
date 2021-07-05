@@ -52,10 +52,14 @@ namespace Exercise2 {
             foreach (var item in i) {
                 Console.WriteLine(item.Price + "円 :" + item.Pages + "ページ");
             }
+
+
             int a = books.FindLastIndex(x => x.Price >= 4000);
-            Console.Write(books[a].Title[0]);
-            Console.Write(books[a].Price.ToString()[0]);
-            Console.Write(books[a].Pages.ToString()[0]);
+            Console.WriteLine("{0}{1}{2}",
+                books[a].Title[0],
+                books[a].Price.ToString()[0],
+                books[a].Pages.ToString()[0]);
+
         }
 
         private static void Exercise2_2(List<Book> books) {
@@ -83,13 +87,17 @@ namespace Exercise2 {
 
         private static void Exercise2_7(List<Book> books) {
             var results = books.Where(x => x.Title.Contains("C#") && x.Pages <= 500);
-            foreach (var item in results) {
-                Console.WriteLine(item.Title);
+            foreach (var i in results) {
+                Console.WriteLine(i.Title);
             }
 
             //問題　価格が４０００円以上の本の最後の要素を
             //tltle,price,pagesの順で一文字ずつ出力してください:例フ56
             Console.WriteLine();
+
+            var item =  books.FindLast(x => x.Price >= 4000);
+            Console.WriteLine( item.Title[0] +""+ item.Price.ToString()[0] + item.Pages.ToString()[0]);
+            
            
 
         }

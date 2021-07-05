@@ -54,10 +54,8 @@ namespace Exercise2 {
         }
 
         public void AddrThree() {
-            foreach (var item in _dict) {
-                if (item.Key.Length == 3) {
-                    Console.WriteLine(item.Key + "=" + item.Value);
-                }
+            foreach (var item in _dict.Where(x => x.Key.Length == 3)) {
+                Console.WriteLine(item.Key + "=" + item.Value);
             }
         }
     }

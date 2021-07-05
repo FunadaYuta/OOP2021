@@ -47,7 +47,7 @@ namespace Exercise2 {
             Console.WriteLine("--------");
 
             //問題7.2.2
-            Console.WriteLine(abbrs.Remove("ASEAN"));
+            Console.WriteLine(abbrs.Remove("IOC"));
             Console.WriteLine("--------");
             //問題7.2.4
             abbrs.AddrThree();
