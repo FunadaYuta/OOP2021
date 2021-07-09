@@ -27,30 +27,30 @@ namespace StopWatch {
         private void tbstart_Click(object sender, EventArgs e) {
             tm.Tick += Tm_Tick;
             tm.Start();
+            sw.Start();
         }
 
         private void Tm_Tick(object sender, EventArgs e) {
-            
-            sw.Start();
-            TimeSpan ts = sw.Elapsed;
             textBox1.Text = sw.Elapsed.ToString(@"hh\:mm\:ss\.ff");
         }
 
         //ストップボタン
-        private void tbstop_Click(object sender, EventArgs e) {
+        private void Tbstop_Click(object sender, EventArgs e) {
             tm.Stop();
+            sw.Stop();
         }
 
         //リセットボタン
-        private void tbReset_Click(object sender, EventArgs e) {
+        private void TbReset_Click(object sender, EventArgs e) {
             sw.Reset();
             textBox1.Text = sw.Elapsed.ToString(@"hh\:mm\:ss\.ff");
-            tm.Stop();
+            listBox1.Items.Clear();
+            
         }
 
         //ラップ
-        private void btlap_Click(object sender, EventArgs e) {
-            textBox2.Text = textBox1.Text + "\r\n" + textBox2.Text ;
+        private void Btlap_Click(object sender, EventArgs e) {
+            listBox1.Items.Insert(0,textBox1.Text);
         }
     }
 }
