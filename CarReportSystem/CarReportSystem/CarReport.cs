@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarReportSystem {
+    [Serializable]
     public class CarReport {
 
         
@@ -23,7 +24,7 @@ namespace CarReportSystem {
             日産,
             ホンダ,
             スバル,
-            外車,
+            外国車,
             その他
         }
 
