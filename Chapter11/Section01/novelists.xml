@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- List 11-1 -->
+<novelists>
+    <novelist>
+        <name kana="なつめ そうせき">夏目 漱石</name>
+        <birth>1867-02-09</birth>
+        <death>1916-12-09</death>
+        <masterpieces>
+            <title>吾輩は猫である</title>
+            <title>坊っちゃん</title>
+            <title>こゝろ</title>
+        </masterpieces>
+    </novelist>
+    <novelist>
+        <name kana="かわばた やすなり">川端 康成</name>
+        <birth>1899-06-14</birth>
+        <death>1972-04-16</death>
+        <masterpieces>
+            <title>雪国</title>
+            <title>伊豆の踊子</title>
+        </masterpieces>
+    </novelist>
+    <novelist>
+        <name kana="だざい おさむ">太宰 治</name>
+        <birth>1909-06-19</birth>
+        <death>1948-06-13</death>
+        <masterpieces>
+            <title>斜陽</title>
+            <title>人間失格</title>
+        </masterpieces>
+    </novelist>
+    <novelist>
+        <name kana="みやざわ けんじ">宮沢 賢治</name>
+        <birth>1896-08-27</birth>
+        <death>1933-09-21</death>
+        <masterpieces>
+            <title>銀河鉄道の夜</title>
+            <title>風の又三郎</title>
+        </masterpieces>
+    </novelist>
+</novelists>
