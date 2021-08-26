@@ -16,6 +16,7 @@ namespace Sample0823 {
 
 
         private void Exec_Click(object sender, EventArgs e) {
+
             Result.Text = Math.Pow(int.Parse(Value.Text), int.Parse(Jyou.Text)).ToString();
         }
     }
