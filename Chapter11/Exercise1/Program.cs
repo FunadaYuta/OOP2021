@@ -23,26 +23,7 @@ namespace Exercise1 {
 
 
 
-
-
-
-
-            var xdoc = XDocument.Load("Sample.xml");
-
-            
-
-            Console.WriteLine("-----------------");
-
-            
-
-            Console.WriteLine("-----------------");
-
-
-            var sample3 = xdoc.Root.Elements().Select(z => z.Element("name").Value);
-            Console.WriteLine(sample3);
-
         }
-
         private static void Exercise1_1(string file) {
             var xdoc = XDocument.Load(file);
             var sample1 = xdoc.Root.Elements();
@@ -65,12 +46,15 @@ namespace Exercise1 {
 
         private static void Exercise1_3(string file) {
             var xdoc = XDocument.Load(file);
-            var max = xdoc.Elements().OrderBy(x => x.Element("teammembers")).Max();
-            Console.WriteLine(max.Element("name").Value);
-            
-            
-            
-            
+            var sample3 = xdoc.Root.Elements()
+                             .Select(x => new {
+                                Name = x.Element("name").Value,
+                                Teammembers = x.Element("teammembers").Value
+                             })
+                             .OrderByDescending(x => int.Parse(x.Teammembers))
+                             .First();
+            Console.WriteLine(sample3.Name);
+
         }
     }
 }
