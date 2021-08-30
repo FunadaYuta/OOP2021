@@ -25,6 +25,8 @@ namespace Section02 {
             xdoc.Root.Add(element);
 
             xdoc.Save("novelists.xml");//XMLファイルへの保存
+            //var elements = xdoc.Root.Elements().Where(x => x.Element("name").Value == "菊池 寛");
+            //elements.Remove();
         }
     }
 }
