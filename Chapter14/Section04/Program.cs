@@ -39,8 +39,7 @@ namespace Section04 {
                     Console.WriteLine("コードを入力して下さい");
                     Console.Write(">");
                     num = int.Parse(Console.ReadLine());
-                    Console.WriteLine("正しく入力して下さい");
-                    new Program();
+                    
                     break;
                 default:
                     Console.WriteLine("正しく入力して下さい");
