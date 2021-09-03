@@ -41,7 +41,8 @@ namespace WeatherApp {
                 WeatherTextBox.Text = "";
                 var results = GetWeatherReportFromYahoo(int.Parse(strSelectedNode));
                 foreach (var s in results) {
-                    WeatherTextBox.Text += s + "\n";
+                    WeatherTextBox.Text += s + "\r\n";
+
                 }
 
             }
