@@ -10,48 +10,51 @@ using System.Xml.Linq;
 
 namespace Section04 {
     class Program {
+
+        Dictionary<string, int> AreaDic = new Dictionary<string, int>() {
+            {"前橋",4210 },
+            {"みなかみ",4220 },
+            {"宇都宮",4110 },
+            {"水戸", 4010}
+        };
+
         static void Main(string[] args) {
             new Program();
         }
 
         //コンストラクタ
         public Program() {
-                
+            List<int> numlist = new List<int>();
+            int n = 0;
             Console.WriteLine("地域コード入力");
-            Console.WriteLine("1:前橋\n2:みなかみ\n3:宇都宮\n4:水戸\n9:その他（直接入力)");
+            foreach(KeyValuePair<string,int> pair in AreaDic) {
+                Console.WriteLine("{0}:{1}", n++, pair.Key);
+                numlist.Add(pair.Value);
+            }
+            Console.WriteLine("99:その他（直接入力)");
             Console.Write(">");
             int num = int.Parse(Console.ReadLine());
-
-            switch (num) {
-                case 1:
-                    num = 4210;
-                    break;
-                case 2:
-                    num = 4220;
-                    break;
-                case 3:
-                    num = 4110;
-                    break;
-                case 4:
-                    num = 4010;
-                    break;
-                case 9:
-                    Console.WriteLine("コードを入力して下さい");
-                    Console.Write(">");
-                    num = int.Parse(Console.ReadLine());
-                    break;
-                default:
-                    Console.WriteLine("正しく入力して下さい");
-                    new Program();
-                    break;
+            if (num == 99) {
+                Console.WriteLine("地域名を入力して下さい");
+                Console.Write(">");
+                string area = Console.ReadLine();
+                Console.WriteLine("コードを入力して下さい");
+                Console.Write(">");
+                num = int.Parse(Console.ReadLine());
+                AreaDic.Add(area, num);
+            } else {
+                num = numlist[num];
             }
-
 
             var results = GetWeatherReportFromYahoo(num);
             foreach (var s in results) {
                 Console.WriteLine(s);
-
             }
+
+            Console.WriteLine();
+            Console.WriteLine("0:終わる\n1:続ける");
+            int result = int.Parse(Console.ReadLine());
+            if (result == 1) new Program();
 
         }
 
