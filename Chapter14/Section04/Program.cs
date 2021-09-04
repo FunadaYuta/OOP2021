@@ -11,7 +11,7 @@ using System.Xml.Linq;
 namespace Section04 {
     class Program {
 
-        Dictionary<string, int> AreaDic = new Dictionary<string, int>() {
+        static Dictionary<string, int> AreaDic = new Dictionary<string, int>() {
             {"前橋",4210 },
             {"みなかみ",4220 },
             {"宇都宮",4110 },
@@ -24,35 +24,41 @@ namespace Section04 {
 
         //コンストラクタ
         public Program() {
-            List<int> numlist = new List<int>();
+            List<int> numlist = new List<int>();//地域コードを順番に格納
             int n = 0;
-            Console.WriteLine("地域コード入力");
+
+            Console.WriteLine("\n番号を選択");
+
             foreach(KeyValuePair<string,int> pair in AreaDic) {
                 Console.WriteLine("{0}:{1}", n++, pair.Key);
                 numlist.Add(pair.Value);
             }
+
             Console.WriteLine("99:その他（直接入力)");
             Console.Write(">");
-            int num = int.Parse(Console.ReadLine());
-            if (num == 99) {
-                Console.WriteLine("地域名を入力して下さい");
+
+            int num = int.Parse(Console.ReadLine());//番号を入力
+            int cord;//地域コード
+
+            if (num == 99) {//新しく入力する場合
+                Console.WriteLine("\n地域名を入力して下さい");
                 Console.Write(">");
-                string area = Console.ReadLine();
+                string area = Console.ReadLine();//地域名
                 Console.WriteLine("コードを入力して下さい");
                 Console.Write(">");
-                num = int.Parse(Console.ReadLine());
-                AreaDic.Add(area, num);
-            } else {
-                num = numlist[num];
+                cord = int.Parse(Console.ReadLine());//地域コード
+                AreaDic.Add(area, cord);//ディクショナリーに追加
+            } else {//既存の番号または誤入力
+                cord = numlist[num];
             }
 
-            var results = GetWeatherReportFromYahoo(num);
+            var results = GetWeatherReportFromYahoo(cord);
             foreach (var s in results) {
                 Console.WriteLine(s);
             }
 
-            Console.WriteLine();
-            Console.WriteLine("0:終わる\n1:続ける");
+            Console.WriteLine("\n0:終わる\n1:続ける");
+            Console.Write(">");
             int result = int.Parse(Console.ReadLine());
             if (result == 1) new Program();
 
