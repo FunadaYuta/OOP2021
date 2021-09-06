@@ -55,15 +55,17 @@ namespace RssReader {
             this.lbTitles.ItemHeight = 12;
             this.lbTitles.Location = new System.Drawing.Point(12, 67);
             this.lbTitles.Name = "lbTitles";
-            this.lbTitles.Size = new System.Drawing.Size(299, 544);
+            this.lbTitles.Size = new System.Drawing.Size(299, 664);
             this.lbTitles.TabIndex = 2;
+            this.lbTitles.Click += new System.EventHandler(this.lbTitles_Click);
             // 
             // wbBrowser
             // 
             this.wbBrowser.Location = new System.Drawing.Point(317, 67);
             this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrowser.Name = "wbBrowser";
-            this.wbBrowser.Size = new System.Drawing.Size(528, 544);
+            this.wbBrowser.ScriptErrorsSuppressed = true;
+            this.wbBrowser.Size = new System.Drawing.Size(921, 660);
             this.wbBrowser.TabIndex = 3;
             // 
             // btRead
@@ -80,15 +82,18 @@ namespace RssReader {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 627);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1250, 739);
             this.Controls.Add(this.btRead);
             this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbTitles);
             this.Controls.Add(this.tbUrl);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "32141";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
