@@ -59,7 +59,7 @@ namespace RssReader {
             foreach(var node in tit) {
                 if (selectnode.ToString() == node) {
                     wbBrowser.Url = new Uri(urltitle[n]);
-                    break;
+                    continue;
                 }
                 n++;
             }
