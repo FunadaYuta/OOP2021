@@ -15,8 +15,9 @@ using System.Xml.Linq;
 namespace RssReader {
 
     public partial class Form1 : Form {
-        List<string> tit = new List<string>();
+
         List<string> urltitle = new List<string>();
+
         private void Form1_Load(object sender, EventArgs e) {
             
         }
@@ -44,7 +45,6 @@ namespace RssReader {
                 lbTitles.Items.Clear();
                 foreach (var node in nodes) {
                     lbTitles.Items.Add(Regex.Replace(node.Value, "【|】", ""));
-                    tit.Add(Regex.Replace(node.Value, "【|】", ""));
                 }
                 foreach(var link in links) {
                     urltitle.Add(link.Value);
@@ -54,15 +54,7 @@ namespace RssReader {
         }
 
         private void lbTitles_Click(object sender, EventArgs e) {
-            var selectnode = lbTitles.SelectedItem;
-            int n = 0;
-            foreach(var node in tit) {
-                if (selectnode.ToString() == node) {
-                    wbBrowser.Url = new Uri(urltitle[n]);
-                    continue;
-                }
-                n++;
-            }
+            wbBrowser.Url = new Uri(urltitle[lbTitles.SelectedIndex]);
         }
     }
 }
