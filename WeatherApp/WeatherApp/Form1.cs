@@ -37,7 +37,7 @@ namespace WeatherApp {
         private void AreaButton_Click(object sender, EventArgs e) {
             var strSelectedNode = AreaTree.SelectedNode.Name;
             int n;
-            if (Int32.TryParse(strSelectedNode, out n)) {
+            if (int.TryParse(strSelectedNode, out n)) {
                 WeatherTextBox.Text = "";
                 var results = GetWeatherReportFromYahoo(int.Parse(strSelectedNode));
                 foreach (var s in results) {

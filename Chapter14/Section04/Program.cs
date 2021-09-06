@@ -18,13 +18,15 @@ namespace Section04 {
             {"水戸", 4010}
         };
 
+        List<int> numlist = new List<int>();//地域コードを順番に格納
+
         static void Main(string[] args) {
             new Program();
         }
 
         //コンストラクタ
         public Program() {
-            List<int> numlist = new List<int>();//地域コードを順番に格納
+            
             int n = 0;
 
             Console.WriteLine("\n番号を選択");
@@ -51,7 +53,7 @@ namespace Section04 {
             } else {//既存の番号または誤入力
                 cord = numlist[num];
             }
-
+            
             var results = GetWeatherReportFromYahoo(cord);
             foreach (var s in results) {
                 Console.WriteLine(s);
