@@ -16,7 +16,9 @@ namespace RssReader {
 
     public partial class Form1 : Form {
 
-        List<string> urltitle = new List<string>();
+        List<string> urllink = new List<string>();//url
+        List<string> descriptionlist = new List<string>();//descripition
+        List<string> pubDatelist = new List<string>();//pubDate
 
         private void Form1_Load(object sender, EventArgs e) {
             
@@ -27,10 +29,11 @@ namespace RssReader {
             
         }
 
+        //表示ボタン
         private void btRead_Click(object sender, EventArgs e) {
-            setRssTitle(tbUrl.Text);
-
-
+            if (!string.IsNullOrEmpty(tbUrl.Text)) {
+                setRssTitle(tbUrl.Text);
+            }
         }
 
         private void setRssTitle(string url) {
@@ -40,21 +43,40 @@ namespace RssReader {
                 var stream = wc.OpenRead(urll);
 
                 XDocument xdoc = XDocument.Load(stream);
+
                 var nodes = xdoc.Root.Descendants("title");
                 var links = xdoc.Root.Descendants("link");
+                var descriptions = xdoc.Root.Descendants("description");
+                var pubDates = xdoc.Root.Descendants("pubDate");
                 lbTitles.Items.Clear();
-                foreach (var node in nodes) {
+                foreach (var node in nodes)  
                     lbTitles.Items.Add(Regex.Replace(node.Value, "【|】", ""));
-                }
-                foreach(var link in links) {
-                    urltitle.Add(link.Value);
-                }
-                
+                foreach(var link in links) 
+                    urllink.Add(link.Value);
+                foreach (var description in descriptions) 
+                    descriptionlist.Add(description.Value);
+                foreach (var pubDate in pubDates)
+                    pubDatelist.Add(pubDate.Value);
+
             }
         }
 
+        //タイトルを選択
         private void lbTitles_Click(object sender, EventArgs e) {
-            wbBrowser.Url = new Uri(urltitle[lbTitles.SelectedIndex]);
+            int index = lbTitles.SelectedIndex;
+            tbDescription.Text = "";
+            tbpubDate.Text = "";
+
+            DateTime dt;
+            if (DateTime.TryParse(pubDatelist[index], out dt) == true) {
+                tbpubDate.Text += dt.ToString("yyyy年MM月dd日 hh時mm分ss秒 投稿");
+            }
+            
+
+            wbBrowser.Url = new Uri(urllink[index]);
+            tbDescription.Text = descriptionlist[index];
         }
+
+       
     }
 }
