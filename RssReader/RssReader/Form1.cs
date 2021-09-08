@@ -64,6 +64,12 @@ namespace RssReader {
         //タイトルを選択
         private void lbTitles_Click(object sender, EventArgs e) {
             int index = lbTitles.SelectedIndex;
+            Screen(index);
+        }
+
+        //画面を表示させる
+        public void Screen(int index) {
+            
             tbDescription.Text = "";
             tbpubDate.Text = "";
 
@@ -71,12 +77,26 @@ namespace RssReader {
             if (DateTime.TryParse(pubDatelist[index], out dt) == true) {
                 tbpubDate.Text += dt.ToString("yyyy年MM月dd日 hh時mm分ss秒 投稿");
             }
-            
+
 
             wbBrowser.Url = new Uri(urllink[index]);
             tbDescription.Text = descriptionlist[index];
         }
 
-       
+        //次へボタンが押された場合
+        private void btNextTitle_Click(object sender, EventArgs e) {
+            if(!string.IsNullOrEmpty(tbUrl.Text) && lbTitles.Items.Count > 0) {
+                int index = lbTitles.SelectedIndex;
+                if (index == lbTitles.Items.Count-1) {
+                    lbTitles.SelectedIndex = 0;
+                    Screen(0);
+
+                } else {
+                    index = lbTitles.SelectedIndex++;
+                    Screen((index + 1));
+                }
+
+            }
+        }
     }
 }

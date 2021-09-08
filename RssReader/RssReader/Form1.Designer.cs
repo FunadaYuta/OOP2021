@@ -32,6 +32,7 @@ namespace RssReader {
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbpubDate = new System.Windows.Forms.TextBox();
+            this.btNextTitle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -113,11 +114,21 @@ namespace RssReader {
             // tbpubDate
             // 
             this.tbpubDate.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbpubDate.Location = new System.Drawing.Point(317, 57);
+            this.tbpubDate.Location = new System.Drawing.Point(471, 54);
             this.tbpubDate.Multiline = true;
             this.tbpubDate.Name = "tbpubDate";
             this.tbpubDate.Size = new System.Drawing.Size(606, 45);
             this.tbpubDate.TabIndex = 7;
+            // 
+            // btNextTitle
+            // 
+            this.btNextTitle.Location = new System.Drawing.Point(177, 63);
+            this.btNextTitle.Name = "btNextTitle";
+            this.btNextTitle.Size = new System.Drawing.Size(89, 36);
+            this.btNextTitle.TabIndex = 8;
+            this.btNextTitle.Text = "次の記事";
+            this.btNextTitle.UseVisualStyleBackColor = true;
+            this.btNextTitle.Click += new System.EventHandler(this.btNextTitle_Click);
             // 
             // Form1
             // 
@@ -126,6 +137,7 @@ namespace RssReader {
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1250, 739);
+            this.Controls.Add(this.btNextTitle);
             this.Controls.Add(this.tbpubDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbDescription);
@@ -154,6 +166,7 @@ namespace RssReader {
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbpubDate;
+        private System.Windows.Forms.Button btNextTitle;
     }
 }
 
