@@ -37,6 +37,17 @@ namespace RssReader {
             
         }
 
-        
+        private void wbBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
+            if (wbBrowser.CanGoBack == true) {
+                btReturn.Enabled = true;
+            } else {
+                btReturn.Enabled = false;
+            }
+            if (wbBrowser.CanGoForward == true) {
+                btNext.Enabled = true;
+            }else {
+                btNext.Enabled = false;
+            }
+}
     }
 }
