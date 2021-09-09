@@ -10,14 +10,33 @@ using System.Windows.Forms;
 
 namespace RssReader {
     public partial class Form2 : Form {
+        private void Form2_Load(object sender, EventArgs e) {
+           
+        }
         public Form2() {
             InitializeComponent();
+            
         }
 
         public void ScreenShow(string s) {
             wbBrowser.Url = new Uri(s);
         }
 
-       
+      
+
+        private void btReturn_Click(object sender, EventArgs e) {
+            if (wbBrowser.CanGoBack == true) {
+                wbBrowser.GoBack();
+            }
+        }
+
+        private void btNext_Click(object sender, EventArgs e) {
+            if (wbBrowser.CanGoForward == true) {
+                wbBrowser.GoForward();
+            } 
+            
+        }
+
+        
     }
 }

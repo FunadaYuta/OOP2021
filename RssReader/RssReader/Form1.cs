@@ -40,30 +40,26 @@ namespace RssReader {
         private void setRssTitle(string url) {
             using (var wc = new WebClient()) {
                 wc.Headers.Add("Content-type", "charset=UTF-8");
-                var urll = new Uri(url);
-                var stream = wc.OpenRead(urll);
-
-                XDocument xdoc = XDocument.Load(stream);
-                var item = xdoc.Root.Descendants("item");
-                var nodes = xdoc.Root.Descendants("title");
-                var links = xdoc.Root.Descendants("link");
-                var descriptions = xdoc.Root.Descendants("description");
-                var pubDates = xdoc.Root.Descendants("pubDate");
-                lbTitles.Items.Clear();
-                foreach (var i in item) {
-                    lbTitles.Items.Add(Regex.Replace(i.Element("title").Value, "【|】", ""));
-                    urllink.Add(i.Element("link").Value);
-                    descriptionlist.Add(i.Element("description").Value);
-                    pubDatelist.Add(i.Element("pubDate").Value);
-                    //foreach (var node in nodes)
-                    //    lbTitles.Items.Add(Regex.Replace(node.Value, "【|】", ""));
-                    //foreach (var link in links)
-                    //    urllink.Add(link.Value);
-                    //foreach (var description in descriptions)
-                    //    descriptionlist.Add(description.Value);
-                    //foreach (var pubDate in pubDates)
-                    //    pubDatelist.Add(pubDate.Value);
+                
+                
+                try {
+                    var urll = new Uri(url);
+                    var stream = wc.OpenRead(urll);
+                    XDocument xdoc = XDocument.Load(stream);
+                    var item = xdoc.Root.Descendants("item");
+                    lbTitles.Items.Clear();
+                    foreach (var i in item) {
+                        lbTitles.Items.Add(i.Element("title").Value);
+                        urllink.Add(i.Element("link").Value);
+                        descriptionlist.Add(i.Element("description").Value);
+                        pubDatelist.Add(i.Element("pubDate").Value);
+                    }
                 }
+                catch(Exception e) {
+                    MessageBox.Show("URLが正しく入力されていません。");
+                }
+
+                
                 
 
             }
@@ -108,9 +104,13 @@ namespace RssReader {
         }
 
         private void WebSiteOpen_Click(object sender, EventArgs e) {
-            Form2 form2 = new Form2();
-            form2.ScreenShow(tburltitle.Text);
-            form2.Show();
+            if (!string.IsNullOrEmpty(tburltitle.Text)) {
+                Form2 form2 = new Form2();
+                form2.ScreenShow(tburltitle.Text);
+                form2.Show();
+            }
+            
+            
             
         }
     }
