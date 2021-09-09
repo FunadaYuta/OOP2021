@@ -13,5 +13,11 @@ namespace RssReader {
         public Form2() {
             InitializeComponent();
         }
+
+        public void ScreenShow(string s) {
+            wbBrowser.Url = new Uri(s);
+        }
+
+       
     }
 }

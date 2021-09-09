@@ -178,7 +178,7 @@ namespace RssReader {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1250, 739);
+            this.ClientSize = new System.Drawing.Size(1250, 671);
             this.Controls.Add(this.WebSiteOpen);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);

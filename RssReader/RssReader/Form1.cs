@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
+
 namespace RssReader {
 
     public partial class Form1 : Form {
@@ -107,7 +108,10 @@ namespace RssReader {
         }
 
         private void WebSiteOpen_Click(object sender, EventArgs e) {
-
+            Form2 form2 = new Form2();
+            form2.ScreenShow(tburltitle.Text);
+            form2.Show();
+            
         }
     }
 }
