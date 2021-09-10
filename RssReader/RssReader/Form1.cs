@@ -80,28 +80,41 @@ namespace RssReader {
         //lbtitlesのタイトルを選択
         private void lbTitles_Click(object sender, EventArgs e) {
             int index = lbTitles.SelectedIndex;
-            Screen(index);
-        }
-
-        //Form1に選択されたタイトルの説明とURLと日付を表示させる
-        public void Screen(int index) {
-
             string link = (items.ToArray())[lbTitles.SelectedIndex].Link;//配列へ変換して[]でアクセス
             DateTime dt = (items.ToArray())[lbTitles.SelectedIndex].PubDate;
             string desc = (items.ToArray())[lbTitles.SelectedIndex].Description;
-
-            tbpubDate.Text = dt.ToString("yyyy年MM月dd日 hh時mm分ss秒 投稿");
-            tburltitle.Text = link;
-            tbDescription.Text = desc;
+            Screen(link, dt, desc);
         }
 
+        //Form1に選択されたタイトルの説明とURLと日付を表示させる
+        public void Screen(string link,DateTime dt,string desc) {
+            lbpubdata.Text = dt.ToString("yyyy年MM月dd日 hh時mm分ss秒 投稿");
+            lburl.Text = link;
+            lbdescription.Text = desc;
+        }
 
+        //次へボタンを押した場合
+        private void btNextTitle_Click(object sender, EventArgs e) {
+            if (!string.IsNullOrEmpty(tbUrl.Text) && lbTitles.Items.Count > 0) {
+                int index = lbTitles.SelectedIndex;
+                if (index == lbTitles.Items.Count - 1) {
+                    lbTitles.SelectedIndex = 0;
+                } else {
+                    lbTitles.SelectedIndex++;
+                }
+                //配列へ変換して[]でアクセス
+                string link = (items.ToArray())[lbTitles.SelectedIndex].Link;
+                DateTime dt = (items.ToArray())[lbTitles.SelectedIndex].PubDate;
+                string desc = (items.ToArray())[lbTitles.SelectedIndex].Description;
+                Screen(link, dt, desc);
+            }
+        }
 
         //Webサイトを表示ボタンが押された場合
         private void WebSiteOpen_Click(object sender, EventArgs e) {
             Form2 form2 = new Form2();
-            if (!string.IsNullOrEmpty(tburltitle.Text)) {
-                form2.ScreenShow(tburltitle.Text);
+            if (!string.IsNullOrEmpty(lburl.Text)) {
+                form2.ScreenShow(lburl.Text);
                 form2.Show();
 
             }
@@ -109,5 +122,7 @@ namespace RssReader {
             
             
         }
+
+       
     }
 }

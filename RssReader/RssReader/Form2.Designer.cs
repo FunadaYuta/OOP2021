@@ -44,6 +44,7 @@ namespace RssReader {
             // 
             // btReturn
             // 
+            this.btReturn.Enabled = false;
             this.btReturn.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btReturn.Location = new System.Drawing.Point(12, 12);
             this.btReturn.Name = "btReturn";
@@ -65,6 +66,7 @@ namespace RssReader {
             // 
             // btNext
             // 
+            this.btNext.Enabled = false;
             this.btNext.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btNext.Location = new System.Drawing.Point(99, 12);
             this.btNext.Name = "btNext";

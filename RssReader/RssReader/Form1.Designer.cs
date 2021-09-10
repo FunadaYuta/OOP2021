@@ -28,15 +28,15 @@ namespace RssReader {
             this.tbUrl = new System.Windows.Forms.TextBox();
             this.lbTitles = new System.Windows.Forms.ListBox();
             this.btRead = new System.Windows.Forms.Button();
-            this.tbDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbpubDate = new System.Windows.Forms.TextBox();
-            this.tburltitle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.WebSiteOpen = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btNextTitle = new System.Windows.Forms.Button();
+            this.lbdescription = new System.Windows.Forms.Label();
+            this.lburl = new System.Windows.Forms.Label();
+            this.lbpubdata = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -82,17 +82,6 @@ namespace RssReader {
             this.btRead.UseVisualStyleBackColor = true;
             this.btRead.Click += new System.EventHandler(this.btRead_Click);
             // 
-            // tbDescription
-            // 
-            this.tbDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbDescription.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbDescription.Location = new System.Drawing.Point(334, 379);
-            this.tbDescription.Multiline = true;
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(904, 274);
-            this.tbDescription.TabIndex = 5;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -103,58 +92,43 @@ namespace RssReader {
             this.label2.TabIndex = 6;
             this.label2.Text = "記事を選択↓↓";
             // 
-            // tbpubDate
-            // 
-            this.tbpubDate.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tbpubDate.Location = new System.Drawing.Point(444, 176);
-            this.tbpubDate.Multiline = true;
-            this.tbpubDate.Name = "tbpubDate";
-            this.tbpubDate.Size = new System.Drawing.Size(505, 45);
-            this.tbpubDate.TabIndex = 7;
-            // 
-            // tburltitle
-            // 
-            this.tburltitle.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.tburltitle.Location = new System.Drawing.Point(444, 252);
-            this.tburltitle.Multiline = true;
-            this.tburltitle.Name = "tburltitle";
-            this.tburltitle.Size = new System.Drawing.Size(797, 74);
-            this.tburltitle.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(330, 179);
+            this.label3.Location = new System.Drawing.Point(339, 255);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 24);
+            this.label3.Size = new System.Drawing.Size(108, 26);
             this.label3.TabIndex = 9;
             this.label3.Text = "投稿時間";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(339, 277);
+            this.label4.Location = new System.Drawing.Point(339, 348);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 24);
+            this.label4.Size = new System.Drawing.Size(55, 26);
             this.label4.TabIndex = 10;
             this.label4.Text = "URL";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(339, 352);
+            this.label5.Location = new System.Drawing.Point(339, 452);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 24);
+            this.label5.Size = new System.Drawing.Size(60, 26);
             this.label5.TabIndex = 10;
             this.label5.Text = "内容";
             // 
             // WebSiteOpen
             // 
             this.WebSiteOpen.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.WebSiteOpen.Location = new System.Drawing.Point(1034, 158);
+            this.WebSiteOpen.Location = new System.Drawing.Point(343, 133);
             this.WebSiteOpen.Name = "WebSiteOpen";
             this.WebSiteOpen.Size = new System.Drawing.Size(162, 70);
             this.WebSiteOpen.TabIndex = 11;
@@ -162,14 +136,40 @@ namespace RssReader {
             this.WebSiteOpen.UseVisualStyleBackColor = true;
             this.WebSiteOpen.Click += new System.EventHandler(this.WebSiteOpen_Click);
             // 
-            // label6
+            // btNextTitle
             // 
-            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.Location = new System.Drawing.Point(442, 75);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(552, 86);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "label6";
+            this.btNextTitle.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btNextTitle.Location = new System.Drawing.Point(177, 57);
+            this.btNextTitle.Name = "btNextTitle";
+            this.btNextTitle.Size = new System.Drawing.Size(124, 45);
+            this.btNextTitle.TabIndex = 13;
+            this.btNextTitle.Text = "次の記事";
+            this.btNextTitle.UseVisualStyleBackColor = true;
+            this.btNextTitle.Click += new System.EventHandler(this.btNextTitle_Click);
+            // 
+            // lbdescription
+            // 
+            this.lbdescription.Font = new System.Drawing.Font("MS UI Gothic", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbdescription.Location = new System.Drawing.Point(464, 448);
+            this.lbdescription.Name = "lbdescription";
+            this.lbdescription.Size = new System.Drawing.Size(763, 201);
+            this.lbdescription.TabIndex = 14;
+            // 
+            // lburl
+            // 
+            this.lburl.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lburl.Location = new System.Drawing.Point(465, 348);
+            this.lburl.Name = "lburl";
+            this.lburl.Size = new System.Drawing.Size(684, 41);
+            this.lburl.TabIndex = 15;
+            // 
+            // lbpubdata
+            // 
+            this.lbpubdata.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lbpubdata.Location = new System.Drawing.Point(465, 255);
+            this.lbpubdata.Name = "lbpubdata";
+            this.lbpubdata.Size = new System.Drawing.Size(684, 41);
+            this.lbpubdata.TabIndex = 15;
             // 
             // Form1
             // 
@@ -178,15 +178,15 @@ namespace RssReader {
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1250, 671);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbpubdata);
+            this.Controls.Add(this.lburl);
+            this.Controls.Add(this.lbdescription);
+            this.Controls.Add(this.btNextTitle);
             this.Controls.Add(this.WebSiteOpen);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.tburltitle);
-            this.Controls.Add(this.tbpubDate);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.btRead);
             this.Controls.Add(this.lbTitles);
             this.Controls.Add(this.tbUrl);
@@ -207,15 +207,15 @@ namespace RssReader {
         private System.Windows.Forms.TextBox tbUrl;
         private System.Windows.Forms.ListBox lbTitles;
         private System.Windows.Forms.Button btRead;
-        private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbpubDate;
-        private System.Windows.Forms.TextBox tburltitle;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button WebSiteOpen;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btNextTitle;
+        private System.Windows.Forms.Label lbdescription;
+        private System.Windows.Forms.Label lburl;
+        private System.Windows.Forms.Label lbpubdata;
     }
 }
 
