@@ -31,12 +31,12 @@ namespace RssReader {
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbpubDate = new System.Windows.Forms.TextBox();
-            this.btNextTitle = new System.Windows.Forms.Button();
             this.tburltitle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.WebSiteOpen = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -112,16 +112,6 @@ namespace RssReader {
             this.tbpubDate.Size = new System.Drawing.Size(505, 45);
             this.tbpubDate.TabIndex = 7;
             // 
-            // btNextTitle
-            // 
-            this.btNextTitle.Location = new System.Drawing.Point(177, 63);
-            this.btNextTitle.Name = "btNextTitle";
-            this.btNextTitle.Size = new System.Drawing.Size(89, 36);
-            this.btNextTitle.TabIndex = 8;
-            this.btNextTitle.Text = "次の記事";
-            this.btNextTitle.UseVisualStyleBackColor = true;
-            this.btNextTitle.Click += new System.EventHandler(this.btNextTitle_Click);
-            // 
             // tburltitle
             // 
             this.tburltitle.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -172,6 +162,15 @@ namespace RssReader {
             this.WebSiteOpen.UseVisualStyleBackColor = true;
             this.WebSiteOpen.Click += new System.EventHandler(this.WebSiteOpen_Click);
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label6.Location = new System.Drawing.Point(442, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(552, 86);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "label6";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -179,11 +178,11 @@ namespace RssReader {
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1250, 671);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.WebSiteOpen);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btNextTitle);
             this.Controls.Add(this.tburltitle);
             this.Controls.Add(this.tbpubDate);
             this.Controls.Add(this.label2);
@@ -211,12 +210,12 @@ namespace RssReader {
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbpubDate;
-        private System.Windows.Forms.Button btNextTitle;
         private System.Windows.Forms.TextBox tburltitle;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button WebSiteOpen;
+        private System.Windows.Forms.Label label6;
     }
 }
 

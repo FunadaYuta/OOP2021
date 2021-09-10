@@ -37,12 +37,15 @@ namespace RssReader {
             
         }
 
+        //Webブラウザを読み取った場合
         private void wbBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
+            //ブラウザが戻れる場合
             if (wbBrowser.CanGoBack == true) {
                 btReturn.Enabled = true;
             } else {
                 btReturn.Enabled = false;
             }
+            //ブラウザが次に進める場合
             if (wbBrowser.CanGoForward == true) {
                 btNext.Enabled = true;
             }else {
