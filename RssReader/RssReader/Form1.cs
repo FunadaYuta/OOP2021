@@ -19,11 +19,6 @@ namespace RssReader {
 
         IEnumerable<ItemDate> items = null;
 
-        List<string> urllink = new List<string>();//url
-        List<string> descriptionlist = new List<string>();//descripition
-        List<string> pubDatelist = new List<string>();//pubDate
-
-        List<string> str = new List<string>();
         private void Form1_Load(object sender, EventArgs e) {
 
         }
@@ -119,10 +114,7 @@ namespace RssReader {
 
             }
             
-            
-            
         }
-
        
     }
 }
