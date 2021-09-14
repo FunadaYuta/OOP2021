@@ -40,7 +40,6 @@ namespace RssReader {
             using (var wc = new WebClient()) {
                 wc.Headers.Add("Content-type", "charset=UTF-8");
                 
-                
                 try {
                     var urll = new Uri(url);
                     var stream = wc.OpenRead(urll);
@@ -59,15 +58,10 @@ namespace RssReader {
                         lbTitles.Items.Add(item.Title);
                     }
 
-
-                    
                 }
                 catch(Exception e) {
-                    MessageBox.Show("URLが正しく入力されていません。");
+                    MessageBox.Show("URLが正しく入力されていません。" + e);
                 }
-
-                
-                
 
             }
         }

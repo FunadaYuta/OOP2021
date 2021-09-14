@@ -25,13 +25,13 @@ namespace RssReader {
       
 
         private void btReturn_Click(object sender, EventArgs e) {
-            if (wbBrowser.CanGoBack == true) {
+            if (wbBrowser.CanGoBack) {
                 wbBrowser.GoBack();
             }
         }
 
         private void btNext_Click(object sender, EventArgs e) {
-            if (wbBrowser.CanGoForward == true) {
+            if (wbBrowser.CanGoForward) {
                 wbBrowser.GoForward();
             } 
             
@@ -40,17 +40,9 @@ namespace RssReader {
         //Webブラウザを読み取った場合
         private void wbBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
             //ブラウザが戻れる場合
-            if (wbBrowser.CanGoBack == true) {
-                btReturn.Enabled = true;
-            } else {
-                btReturn.Enabled = false;
-            }
-            //ブラウザが次に進める場合
-            if (wbBrowser.CanGoForward == true) {
-                btNext.Enabled = true;
-            }else {
-                btNext.Enabled = false;
-            }
+            btReturn.Enabled = wbBrowser.CanGoBack;
+            btNext.Enabled = wbBrowser.CanGoForward;
+        }
 }
     }
 }
