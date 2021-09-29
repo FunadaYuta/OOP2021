@@ -17,8 +17,8 @@ namespace Exercise4 {
 
         private void BtFilePath_Click(object sender, EventArgs e) {
             if (OFD.ShowDialog() == DialogResult.OK) {
-                int a = OFD.FileName.IndexOf(".")-1;
-                int c = OFD.FileName.LastIndexOf("\\");
+                int a = OFD.FileName.IndexOf(".")-1;//識別子より前のものを選択
+                int c = OFD.FileName.LastIndexOf("\\");//最後の\マークの所を選択
                 string str = OFD.FileName.Substring(c,a-c);
                 string str2 = OFD.FileName.Substring(a + 1);
                 File.Copy(OFD.FileName, TbDirectory.Text + str + "_bak" + str2,overwrite:true);

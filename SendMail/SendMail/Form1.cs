@@ -15,7 +15,7 @@ namespace SendMail {
         public Form1() {
             InitializeComponent();
         }
-
+        Setting setting = new Setting();
         private void btSend_Click(object sender, EventArgs e) {
             try {
                 //メール送信のためのインスタンスを生成
@@ -23,7 +23,9 @@ namespace SendMail {
                 //差出人アドレス
                 mailMessage.From = new MailAddress("ojsinfosys01@gmail.com");
                 //宛先（To）
-                mailMessage.To.Add(tbTo.Text);
+                mailMessage.To.Add(tbTo.Text); 
+                mailMessage.CC.Add(tbCc.Text);
+                mailMessage.Bcc.Add(tbBcc.Text);
                 //件名（タイトル）
                 mailMessage.Subject = tbTitle.Text;
                 //本文
@@ -32,11 +34,12 @@ namespace SendMail {
                 //SMTPを使ってメールを送信する
                 SmtpClient smtpClient = new SmtpClient();
                 //メール送信のための認証情報（ユーザー名、パスワード）
+                new Setting();
                 smtpClient.Credentials 
-                    = new NetworkCredential("ojsinfosys01@gmail.com","Infosys2021");
-                smtpClient.Host = "smtp.gmail.com";
-                smtpClient.Port = 587;
-                smtpClient.EnableSsl = true;
+                    = new NetworkCredential(Setting.MailAddr,setting.Pass);
+                smtpClient.Host = setting.Host;
+                smtpClient.Port = setting.Port;
+                smtpClient.EnableSsl = setting.Ssl;
                 smtpClient.Send(mailMessage);
 
                 MessageBox.Show("送信完了");
@@ -45,6 +48,10 @@ namespace SendMail {
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void bcConfig_Click(object sender, EventArgs e) {
+            new ConfigForm().ShowDialog();
         }
     }
 }
