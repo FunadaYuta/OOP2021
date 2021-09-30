@@ -5,13 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SendMail {
-    class Setting {
+    public class Settings {
+
+        private static readonly Settings instance = new Settings();
 
         public int Port { get; set; }   //ポート番号
         public string Host { get; set; }    //ホスト名
         public string MailAddr { get; set; }    //メールアドレス
         public string Pass { get; set; }    //パスワード
         public bool Ssl { get; set; }   //SSL
+
+        //コンストラクタ
+        private Settings() {
+
+        }
+
+        //インスタンスの取得
+        public static Settings getInstance() {
+            return Settings.instance;
+        }
 
         public string sHost() {
             return "smtp.gmail.com";
@@ -23,7 +35,13 @@ namespace SendMail {
             return "ojsinfosys01@gmail.com";
         }
         public string sPass() {
-            return "OjsInfosys2019";
+            return "Infosys2021";
         }
+        public bool sSsl() {
+            return true;
+        }
+       
+
+       
     }
 }

@@ -13,7 +13,8 @@ namespace SendMail {
         public ConfigForm() {
             InitializeComponent();
         }
-        Setting setting = new Setting();
+
+        public Settings setting = Settings.getInstance();
 
         private void groupBox1_Enter(object sender, EventArgs e) {
 
@@ -22,24 +23,28 @@ namespace SendMail {
         private void btOk_Click(object sender, EventArgs e) {
             Apply();
             this.Close();
-
+            
         }
 
         private void btApply_Click(object sender, EventArgs e) {
             Apply();
-           
         }
 
-        private void Apply() {
+        private Settings Setreturn() {
+            return setting;
+        }
+
+        public void Apply() {
             setting.Host = tbHost.Text;
-            setting.MailAddr = tbUserName.Text;
-            setting.Port = int.Parse(tbPort.Text);
             setting.Pass = tbPass.Text;
+            setting.Port = int.Parse(tbPort.Text);
+            setting.MailAddr = tbUserName.Text;
             setting.Ssl = cbSsl.Checked;
+             
         }
 
         private void btCancel_Click(object sender, EventArgs e) {
-
+            this.Close();
         }
 
         private void btDefault_Click(object sender, EventArgs e) {
@@ -48,7 +53,12 @@ namespace SendMail {
             tbUserName.Text = setting.sMailAddr();
             tbPort.Text = setting.sPort();
             tbPass.Text = setting.sPass();
+            cbSsl.Checked = setting.sSsl();
+            tbSender.Text = setting.sMailAddr();
 
         }
+
+
+
     }
 }
