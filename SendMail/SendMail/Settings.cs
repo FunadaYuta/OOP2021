@@ -21,7 +21,7 @@ namespace SendMail {
         }
 
         //インスタンスの取得
-        public static Settings getInstance() {
+        public static Settings GetInstance() {
             return Settings.instance;
         }
 

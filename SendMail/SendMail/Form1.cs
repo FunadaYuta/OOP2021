@@ -15,7 +15,7 @@ namespace SendMail {
         public Form1() {
             InitializeComponent();
         }
-        private Settings setting = Settings.getInstance();
+        private readonly Settings setting = Settings.GetInstance();
 
         private void btSend_Click(object sender, EventArgs e) {
             try {
@@ -25,8 +25,12 @@ namespace SendMail {
                 mailMessage.From = new MailAddress(setting.MailAddr);
                 //宛先（To）
                 mailMessage.To.Add(tbTo.Text); 
-                mailMessage.CC.Add(tbCc.Text);
-                mailMessage.Bcc.Add(tbBcc.Text);
+
+                if(tbCc.Text != null)
+                    mailMessage.CC.Add(tbCc.Text);
+                if(tbBcc.Text != null)
+                    mailMessage.Bcc.Add(tbBcc.Text);
+
                 //件名（タイトル）
                 mailMessage.Subject = tbTitle.Text;
                 //本文
@@ -43,6 +47,7 @@ namespace SendMail {
                 smtpClient.Host = setting.Host;
                 smtpClient.Port = setting.Port;
                 smtpClient.EnableSsl = setting.Ssl;
+
                 smtpClient.Send(mailMessage);
 
                 MessageBox.Show("送信完了");
@@ -54,8 +59,7 @@ namespace SendMail {
         }
 
         private void bcConfig_Click(object sender, EventArgs e) {
-            ConfigForm configForm = new ConfigForm();
-            configForm.Show();
+            new ConfigForm().Show();
         }
     }
 }

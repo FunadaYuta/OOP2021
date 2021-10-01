@@ -14,7 +14,7 @@ namespace SendMail {
             InitializeComponent();
         }
 
-        public Settings setting = Settings.getInstance();
+        private readonly Settings setting = Settings.GetInstance();
 
         private void groupBox1_Enter(object sender, EventArgs e) {
 
@@ -35,11 +35,17 @@ namespace SendMail {
         }
 
         public void Apply() {
-            setting.Host = tbHost.Text;
-            setting.Pass = tbPass.Text;
-            setting.Port = int.Parse(tbPort.Text);
-            setting.MailAddr = tbUserName.Text;
-            setting.Ssl = cbSsl.Checked;
+            try {
+                setting.Host = tbHost.Text;
+                setting.Pass = tbPass.Text;
+                setting.Port = int.Parse(tbPort.Text);
+                setting.MailAddr = tbUserName.Text;
+                setting.Ssl = cbSsl.Checked;
+            }
+            catch (Exception) {
+                MessageBox.Show("入力をしてください");
+            }
+            
              
         }
 
