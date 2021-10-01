@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Runtime.Serialization;
 
 namespace SendMail {
     public partial class ConfigForm : Form {
         public ConfigForm() {
             InitializeComponent();
+
         }
 
-        private readonly Settings setting = Settings.GetInstance();
+        Settings setting = Settings.GetInstance();
 
         private void groupBox1_Enter(object sender, EventArgs e) {
 
@@ -45,8 +48,24 @@ namespace SendMail {
             catch (Exception) {
                 MessageBox.Show("入力をしてください");
             }
-            
-             
+
+            SettingSerialize();
+
+        }
+
+        private void SettingSerialize() {
+
+            var settings = new XmlWriterSettings {
+                Encoding = new System.Text.UTF8Encoding(false),
+                Indent = true,
+                IndentChars = " ",
+            };
+
+            using(var writer = XmlWriter.Create("settings.xml", settings)) {
+                var serializer = new DataContractSerializer(setting.GetType());
+                serializer.WriteObject(writer, setting);
+            }
+
         }
 
         private void btCancel_Click(object sender, EventArgs e) {
