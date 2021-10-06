@@ -24,6 +24,7 @@ namespace SendMail {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbSsl = new System.Windows.Forms.CheckBox();
             this.tbPass = new System.Windows.Forms.TextBox();
@@ -217,6 +218,7 @@ namespace SendMail {
             this.ClientSize = new System.Drawing.Size(557, 357);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfigForm";
             this.Text = "ConfigForm";
             this.groupBox1.ResumeLayout(false);

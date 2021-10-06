@@ -120,4 +120,29 @@
   <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAD8/Pz//Pz8//v7/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz//Pz8//z8/P/8/Pz/+/z8//z8
+        /P/8/Pz/////////////////////////////////////////////////////////////////////////
+        //////////////////////7/8PH4//X1+P/8/Pv/+vr6//r6+v/6+vr/+/v7//v7+//6+vv/+/z6//Dy
+        9f/y8vj/////////////////8fP5/05Y1v+1ud//9fbt/+zs7v/t7e3/7e3t/+zs7P/p6en/5ubo//f2
+        7P+aotT/SFfI//39/P///////////+Tl+P8zQNX/tbve/+zs5f/r6+3/8fHx/+/v7//n5+f/6enp/+fo
+        6v/59+7/nKPX/yY5w//y8/r////////////l5/f/OUfT/7a83//r6+T/4eHi/+rq6//n5+f/4uLj/+Xl
+        5v/m5uj/+Pbt/56k1/8wP8T/8/X6////////////5eb3/zlG0/+2vN//7Ozk/+Dh5P/d3dn/1dXT/93d
+        2f/m5uP/4uLm//f16/+dpNf/MD7E//P0+v///////////+Xn9v88SNP/t7ve/+vr5v/f39r/w8TJ/2Fr
+        1f9tddT/09PS/+bl4v/z8uv/nKPV/zA+xf/z9Pv////////////m6Pf/PknT/7q84f/u7Nv/ra/I/09Z
+        2P8yQd//MEDe/1Rf1P+8vc7/+PXi/5uh1v8vPsT/8/X6////////////5uf3/0FL2f+5u9b/oKPN/zlI
+        2f9ATN//ubzq/6mv6P8zQN3/O0fX/7W30P+bocr/Lz/E//P0+v///////////+Xm+P9IUtH/ZW7P/zhG
+        3f9cZ+L/0NXt//799P///fP/xcjr/0xV3/84Q93/VmDE/zpIt//x8vr////////////j5fX/SFPV/zhG
+        3v+BiuX/8PDx//r68//v7/L/7+/y//z88//n6PD/a3Tj/yk23P9DTs//7/H3////////////8PH5/11m
+        4P+dpej//Pzz//T08//v7/L/8vLy//Ly8v/v7/L/9vbz//j58v+DjOP/XWXh//z7/P//////////////
+        /v/x8/r//f38//z8/f/7/Pz//f39//z8/P/8/Pz//f39//v7/P/9/f3/+/z8//Hy+f//////////////
+        //////////////7+//////////////////////////////////////////////7+////////////////
+        //////////////7+/////////////////////////////////////////////////////////v7/////
+        ////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

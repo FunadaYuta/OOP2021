@@ -9,35 +9,41 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Runtime.Serialization;
+using System.IO;
 
 namespace SendMail {
     public partial class ConfigForm : Form {
         public ConfigForm() {
             InitializeComponent();
-
+            if (setting.Host != null) {
+                tbHost.Text = setting.Host;
+                tbUserName.Text = setting.MailAddr;
+                tbPort.Text = setting.Port.ToString();
+                tbPass.Text = setting.Pass;
+                cbSsl.Checked = setting.Ssl;
+                tbSender.Text = setting.MailAddr;
+            }
         }
 
-        Settings setting = Settings.GetInstance();
+        private Settings setting = Settings.GetInstance();
+
 
         private void groupBox1_Enter(object sender, EventArgs e) {
 
         }
 
         private void btOk_Click(object sender, EventArgs e) {
-            Apply();
-            this.Close();
-            
+            if (Apply()) {
+                this.Close();
+            }
+
         }
 
         private void btApply_Click(object sender, EventArgs e) {
             Apply();
         }
 
-        private Settings Setreturn() {
-            return setting;
-        }
-
-        public void Apply() {
+        public bool Apply() {
             try {
                 setting.Host = tbHost.Text;
                 setting.Pass = tbPass.Text;
@@ -47,10 +53,11 @@ namespace SendMail {
             }
             catch (Exception) {
                 MessageBox.Show("入力をしてください");
+                return false;
             }
-
+            
             SettingSerialize();
-
+            return true;
         }
 
         private void SettingSerialize() {

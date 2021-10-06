@@ -26,12 +26,14 @@ namespace SendMail {
 
         //インスタンスの取得
         public static Settings GetInstance() {
-            if(instance == null) {
-                string filename = @"C:\Users\infosys\source\repos\FunadaYuta\OOP2021\SendMail\SendMail\bin\Debug\settings.xml";
-                using (var reader = XmlReader.Create(filename)) {
+            string filepass = @"./settings.xml";
+            if (instance == null && File.Exists(filepass)) {
+                using (var reader = XmlReader.Create(filepass)) {
                     var serializer = new DataContractSerializer(typeof(Settings));
                     instance = serializer.ReadObject(reader) as Settings;
                 }
+            }else if (instance == null) {
+                instance = new Settings();
             }
             return instance;
         }
