@@ -10,22 +10,18 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Runtime.Serialization;
 using System.IO;
+using System.Windows.Documents;
 
 namespace SendMail {
     public partial class ConfigForm : Form {
         public ConfigForm() {
             InitializeComponent();
-            if (setting.Host != null) {
-                tbHost.Text = setting.Host;
-                tbUserName.Text = setting.MailAddr;
-                tbPort.Text = setting.Port.ToString();
-                tbPass.Text = setting.Pass;
-                cbSsl.Checked = setting.Ssl;
-                tbSender.Text = setting.MailAddr;
-            }
         }
 
-        private Settings setting = Settings.GetInstance();
+        private List<string> tbList = new List<string>();
+
+
+        Settings setting = Settings.GetInstance();
 
 
         private void groupBox1_Enter(object sender, EventArgs e) {
@@ -45,11 +41,24 @@ namespace SendMail {
 
         public bool Apply() {
             try {
-                setting.Host = tbHost.Text;
-                setting.Pass = tbPass.Text;
-                setting.Port = int.Parse(tbPort.Text);
-                setting.MailAddr = tbUserName.Text;
-                setting.Ssl = cbSsl.Checked;
+
+                tbList.Add(tbHost.Text);
+                tbList.Add(tbPass.Text);
+                tbList.Add(tbPort.Text);
+                tbList.Add(tbUserName.Text);
+                tbList.Add(tbSender.Text);
+
+                foreach(var item in tbList) {
+                    // TextBoxの中身が　null、もしくは空文字列、もしくは空白文字列である
+                    if ((item == null) || (item.Trim().Length == 0)) {  
+                        MessageBox.Show("すべてに入力をしてください");
+                        tbList.Clear();
+                        return false;
+                    }
+                }
+
+                setting.setSendConfig(tbHost.Text,int.Parse(tbPort.Text), tbPass.Text, tbPass.Text, cbSsl.Checked);
+
             }
             catch (Exception) {
                 MessageBox.Show("入力をしてください");
@@ -90,7 +99,18 @@ namespace SendMail {
 
         }
 
+        private void ConfigForm_Load(object sender, EventArgs e) {
 
+            //Xmlファイルをデシリアライズして、設定画面を開いた場合、TextBoxに表示する
+            if ((setting.Host != null) && (setting.Host.Trim().Length != 0)) {
+                tbHost.Text = setting.Host;
+                tbUserName.Text = setting.MailAddr;
+                tbPort.Text = setting.Port.ToString();
+                tbPass.Text = setting.Pass;
+                cbSsl.Checked = setting.Ssl;
+                tbSender.Text = setting.MailAddr;
+            }
 
+        }
     }
 }

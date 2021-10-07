@@ -7,33 +7,33 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace SendMail {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
-            string filepass = @"./settings.xml";
-            if (!configForm.Visible && !File.Exists(filepass)) {
-                configForm = new ConfigForm();
-                configForm.ShowDialog();
-            }
         }
 
         Settings setting = Settings.GetInstance();
-        private ConfigForm configForm = new ConfigForm();
+
+        ConfigForm configForm = new ConfigForm();
 
         private void btSend_Click(object sender, EventArgs e) {
-            if(setting.Host == null || setting.Host == "") {
+
+            if((setting.Host == null) || (setting.Host.Trim().Length == 0)) {
                 MessageBox.Show("未設定です");
                 if (!configForm.Visible) {
                     configForm = new ConfigForm();
-                    configForm.Show();
+                    configForm.ShowDialog();
                 }
                 return;
             }
+
             try {
                 //メール送信のためのインスタンスを生成
 
@@ -94,12 +94,12 @@ namespace SendMail {
         private void bcConfig_Click(object sender, EventArgs e) {
             if (!configForm.Visible) {
                 configForm = new ConfigForm();
-                configForm.Show();
+                configForm.ShowDialog();
             }
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-
+            
         }
     }
 }
