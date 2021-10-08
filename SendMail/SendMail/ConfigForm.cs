@@ -16,9 +16,10 @@ namespace SendMail {
     public partial class ConfigForm : Form {
         public ConfigForm() {
             InitializeComponent();
+
         }
 
-        private List<string> tbList = new List<string>();
+        private List<string> tbList = new List<string>();   //TextBoxの文字列を格納するList
 
 
         Settings setting = Settings.GetInstance();
@@ -28,17 +29,19 @@ namespace SendMail {
 
         }
 
+        //OKボタンを押す
         private void btOk_Click(object sender, EventArgs e) {
-            if (Apply()) {
+            if (Apply()) {  //trueが返って来た場合、画面を閉じる
                 this.Close();
             }
-
         }
 
+        //適用ボタンを押す
         private void btApply_Click(object sender, EventArgs e) {
             Apply();
         }
 
+        //TextBoxの内容を確認し、instanceにセットする
         public bool Apply() {
             try {
 
@@ -47,7 +50,6 @@ namespace SendMail {
                 tbList.Add(tbPort.Text);
                 tbList.Add(tbUserName.Text);
                 tbList.Add(tbSender.Text);
-
                 foreach(var item in tbList) {
                     // TextBoxの中身が　null、もしくは空文字列、もしくは空白文字列である
                     if ((item == null) || (item.Trim().Length == 0)) {  
@@ -57,37 +59,25 @@ namespace SendMail {
                     }
                 }
 
-                setting.setSendConfig(tbHost.Text,int.Parse(tbPort.Text), tbPass.Text, tbPass.Text, cbSsl.Checked);
-
+                //settingでinstanceにTextBoxの内容を格納する
+                setting.setSendConfig(tbHost.Text, int.Parse(tbPort.Text), tbUserName.Text, tbPass.Text, cbSsl.Checked);
+               
             }
             catch (Exception) {
-                MessageBox.Show("入力をしてください");
+                MessageBox.Show("正しく入力をしてください");
                 return false;
             }
             
-            SettingSerialize();
+            //異常がない場合Trueを返す
             return true;
         }
 
-        private void SettingSerialize() {
-
-            var settings = new XmlWriterSettings {
-                Encoding = new System.Text.UTF8Encoding(false),
-                Indent = true,
-                IndentChars = " ",
-            };
-
-            using(var writer = XmlWriter.Create("settings.xml", settings)) {
-                var serializer = new DataContractSerializer(setting.GetType());
-                serializer.WriteObject(writer, setting);
-            }
-
-        }
-
+        //キャンセルボタンを押す
         private void btCancel_Click(object sender, EventArgs e) {
             this.Close();
         }
 
+        //デフォルトボタンを押す
         private void btDefault_Click(object sender, EventArgs e) {
            
             tbHost.Text = setting.sHost();
