@@ -88,12 +88,12 @@ namespace SendMail {
                 MessageBox.Show(e.Error.Message);
             } else {
                 MessageBox.Show("送信完了");
-                reset();
+                reset_tb();
             }
             btSend.Enabled = true;
         }
 
-        private void reset() {
+        private void reset_tb() {
             tbTo.Clear();
             tbCc.Clear();
             tbBcc.Clear();
@@ -114,7 +114,7 @@ namespace SendMail {
         }
 
         private void 新規作成ToolStripMenuItem_Click(object sender, EventArgs e) {
-            reset();
+            reset_tb();
         }
 
         private void Form1_Load(object sender, EventArgs e) {

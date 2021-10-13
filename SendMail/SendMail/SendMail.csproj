@@ -87,6 +87,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="テスト仕様書_〇〇〇〇.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
