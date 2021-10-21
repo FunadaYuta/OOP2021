@@ -28,7 +28,7 @@ namespace SampleEntityFramework {
 
             //Console.WriteLine("\n#2.1");
             //Exercise3_2_1();
-            //RegisterAuthor();
+            RegisterAuthor();
 
             Console.ReadLine();
 
@@ -174,7 +174,6 @@ namespace SampleEntityFramework {
                     Author = author1,
                 };
                 db.Books.Add(book1);
-                var author2 = db.Authors.Single(a => a.Name == "川端康成");
                 var book2 = new Book {
                     Title = "伊豆の踊子",
                     PublishedYear = 2003,
@@ -185,7 +184,6 @@ namespace SampleEntityFramework {
                     }
                 };
                 db.Books.Add(book2);
-                var author3 = db.Authors.Single(a => a.Name == "菊池寛");
                 var book3 = new Book {
                     Title = "真珠婦人",
                     PublishedYear = 2002,
