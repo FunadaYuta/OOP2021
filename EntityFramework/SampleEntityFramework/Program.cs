@@ -28,7 +28,7 @@ namespace SampleEntityFramework {
 
             //Console.WriteLine("\n#2.1");
             //Exercise3_2_1();
-            RegisterAuthor();
+            //RegisterAuthor();
 
             Console.ReadLine();
 
@@ -123,13 +123,10 @@ namespace SampleEntityFramework {
         private static void Exercise3_1_5() {
             using (var db = new BooksDbContext()) {
                 var authorname = db.Authors.OrderByDescending(x => x.Birthday);
-                var books = db.Books.OrderBy(x => x.PublishedYear);
                 foreach(var author in authorname) {
                     Console.WriteLine($"↓↓↓{author.Name}({author.Birthday}～)↓↓↓");
-                    foreach(var book in books) {
-                        if(author.Name == book.Author.Name) {
-                            Console.WriteLine($"{book.Title} { book.PublishedYear}");
-                        }
+                    foreach (var book in author.Books.OrderBy(x => x.PublishedYear)) {
+                        Console.WriteLine($"{book.Title} { book.PublishedYear}");
                     }
                     Console.WriteLine();
                 }
