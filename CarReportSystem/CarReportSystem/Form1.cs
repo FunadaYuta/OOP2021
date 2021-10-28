@@ -15,7 +15,7 @@ namespace CarReportSystem {
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
         public fmMain() {
             InitializeComponent();
-            carReportDataGridView.DataSource = listCarReport;
+            //carReportDataGridView.DataSource = listCarReport;
 
 
         }
@@ -23,7 +23,7 @@ namespace CarReportSystem {
         private void fmMain_Load(object sender, EventArgs e) {
             // TODO: このコード行はデータを 'infosys202130DataSet.CarReport' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
 
-            carReportDataGridView.Columns[5].Visible = false;
+            //carReportDataGridView.Columns[5].Visible = false;
         }
 
     private void btExit_Click(object sender, EventArgs e) {
@@ -129,38 +129,37 @@ namespace CarReportSystem {
 
         //データを削除ボタン
         private void btDataDelete_Click(object sender, EventArgs e) {
-            if (carReportDataGridView.CurrentCell != null) {
-                listCarReport.RemoveAt(carReportDataGridView.CurrentRow.Index);
-            }
+            //if (carReportDataGridView.CurrentCell != null) {
+            //    listCarReport.RemoveAt(carReportDataGridView.CurrentRow.Index);
+            //}
         }
 
         //データを編集ボタン
         private void btDataCorrect_Click(object sender, EventArgs e) {
-            listCarReport[carReportDataGridView.CurrentRow.Index].UpDate(dtpDate.Value,
-                                                                cbAuthor.Text,
-                                                                selectedGroup(),
-                                                                cbCarName.Text,
-                                                                tbReport.Text,
-                                                                pbPicture.Image
-                                                                );
-            carReportDataGridView.Refresh(); //コントロールの強制再描画
+            //listCarReport[carReportDataGridView.CurrentRow.Index].UpDate(dtpDate.Value,
+            //                                                    cbAuthor.Text,
+            //                                                    selectedGroup(),
+            //                                                    cbCarName.Text,
+            //                                                    tbReport.Text,
+            //                                                    pbPicture.Image
+            //                                                    );
+            //carReportDataGridView.Refresh(); //コントロールの強制再描画
         }
 
-        //SQLを更新するボタン
-        private void btSave_Click(object sender, EventArgs e) {
-            String cartag = "";
-            foreach (var rb in gbMaker.Controls) {
-                if (((RadioButton)rb).Checked) {
-                    cartag = (((string)((RadioButton)rb).Tag)).ToString();
-                }
-            }
-            carReportDataGridView.CurrentRow.Cells[1].Value = dtpDate.Value;
-            carReportDataGridView.CurrentRow.Cells[2].Value = cbAuthor.Text;
-            carReportDataGridView.CurrentRow.Cells[3].Value = gbMaker.Visible;
-            carReportDataGridView.CurrentRow.Cells[4].Value = cartag;
+        //更新ボタンイベント処理
+        private void btUpdate_Click(object sender, EventArgs e) {
+            if (carReportDataGridView.CurrentRow == null) return;
 
-            carReportDataGridView.CurrentRow.Cells[5].Value = tbReport.Text;
-            carReportDataGridView.CurrentRow.Cells[6].Value = pbPicture.Image;
+            carReportDataGridView.CurrentRow.Cells[1].Value = dtpDate.Value;    //日付
+            carReportDataGridView.CurrentRow.Cells[2].Value = cbAuthor.Text;    //記録者
+            carReportDataGridView.CurrentRow.Cells[3].Value = selectedGroup();  //メーカー
+            carReportDataGridView.CurrentRow.Cells[4].Value = cbCarName.Text;   //社名
+            carReportDataGridView.CurrentRow.Cells[5].Value = tbReport.Text;    //レポート
+
+            //データベースへ反映
+            this.Validate();
+            this.carReportBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.infosys202130DataSet);
 #if false
             if (sfdFileSave.ShowDialog() == DialogResult.OK) {
                 try {
@@ -178,8 +177,8 @@ namespace CarReportSystem {
 #endif 
         }
 
-        //ファイルを開くボタン
-        private void btOpen_Click(object sender, EventArgs e) {
+        //DBに接続するボタン
+        private void btConnect_Click(object sender, EventArgs e) {
             this.carReportTableAdapter.Fill(this.infosys202130DataSet.CarReport);
 
 
@@ -215,6 +214,14 @@ namespace CarReportSystem {
             this.carReportBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202130DataSet);
 
+        }
+
+        private void carReportDataGridView_SelectionChanged(object sender, EventArgs e) {
+            //if (carReportDataGridView.CurrentRow == null) return;
+            //dtpDate.Value = (DateTime)carReportDataGridView.CurrentRow.Cells[1].Value;
+            //cbAuthor.Text = carReportDataGridView.CurrentRow.Cells[2].Value.ToString();
+            //cbCarName.Text = carReportDataGridView.CurrentRow.Cells[4].Value.ToString();
+            //tbReport.Text = carReportDataGridView.CurrentRow.Cells[5].Value.ToString();
         }
     }
 }

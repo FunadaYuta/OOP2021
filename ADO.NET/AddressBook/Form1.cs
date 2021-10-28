@@ -15,12 +15,12 @@ namespace AddressBook {
         }
 
        
-        private void personBindingNavigatorSaveItem_Click_1(object sender, EventArgs e) {
-            this.Validate();
-            this.personBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.infosys202130DataSet);
+        //private void personBindingNavigatorSaveItem_Click_1(object sender, EventArgs e) {
+        //    this.Validate();
+        //    this.personBindingSource.EndEdit();
+        //    this.tableAdapterManager.UpdateAll(this.infosys202130DataSet);
 
-        }
+        //}
 
         private void Form1_Load(object sender, EventArgs e) {
             personDataGridView.Columns[0].Visible = false;
