@@ -22,8 +22,12 @@ namespace SampleApp {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            MessageBox.Show("ボタンが押されました");
+        private void okButton_Click(object sender, RoutedEventArgs e) {
+            MessageBox.Show(string.Format("入力された文字は{0}文字です", MessageTextBox.Text.Trim().Length));
+        }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e) {
+            MessageBox.Show("キャンセルされました");
         }
     }
 }

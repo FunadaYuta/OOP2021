@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SampleApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <DockPanel HorizontalAlignment="Right" Width="792">
+        Title="MainWindow" Height="300" Width="300">
+    <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
-            <Button x:Name="okButton" Content="Button" Width="75" Margin="5,5,0,5"/>
-            <Button x:Name="cancelButton" Content="Button" Width="75" Margin="5"/>
+            <Button x:Name="okButton" Content="OK" Width="75" Margin="5,5,0,5" Click="okButton_Click"/>
+            <Button x:Name="cancelButton" Content="CANCEL" Width="75" Margin="5" Click="cancelButton_Click"/>
 
         </StackPanel>
+        <StackPanel>
+            <TextBlock TextWrapping="Wrap" Text="メッセージを入力してください"/>
+            <TextBox x:Name="MessageTextBox" Height="23" TextWrapping="Wrap" Width="120"/>
+
+        </StackPanel>
+
     </DockPanel>
 
 </Window>
