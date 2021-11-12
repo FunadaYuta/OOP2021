@@ -1,9 +1,10 @@
-﻿<Application x:Class="SampleUnitConverter.App"
+﻿<Application x:Class="NumberGame.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:SampleUnitConverter"
+             xmlns:local="clr-namespace:NumberGame" xmlns:sys="clr-namespace:System;assembly=mscorlib"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="ButtonBrushKey" Color="Coral"/>
+        <sys:Double x:Key="ButtonWidth">80</sys:Double>
+        <sys:Double x:Key="ButtonHeight">80</sys:Double>
     </Application.Resources>
 </Application>
