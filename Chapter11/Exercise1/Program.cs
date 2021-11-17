@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 
+
 namespace Exercise1 {
     class Program {
         static void Main(string[] args) {
-
+            //DateTime dt = DateTime.Now;
+            //DateTime dt2 = dt + 
+            //Console.WriteLine();
 
             var file = "Sample.xml";
             Exercise1_1(file);

@@ -23,7 +23,7 @@ namespace NumberGame {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-            dt = DateTime.Now;
+            
         }
         DateTime dt;
         int count = 0;
@@ -48,7 +48,8 @@ namespace NumberGame {
         }
 
         private void TimerMethod() {
-            uxClock.Text = (DateTime.Now - dt).ToString("hh:mm:ss");
+            TimeSpan ts1 = DateTime.Now - dt;
+            uxClock.Text = ts1.ToString();
 
         }
 
@@ -58,20 +59,26 @@ namespace NumberGame {
             if (count == 0) {
                 Random rm = new Random();
                 answer = rm.Next(1, 26);
+                dt = DateTime.Now;
                 InitializeTimer();
             }
             count++;
 
             var button = (Button)sender;
+            
             int s = int.Parse(button.Content.ToString());
             if (s == answer) {
-                Notification.Text = "せいかいです" + count + "回目" + answer + "が正解です";
+                Notification.Text = count + "回目" + answer + "が正解です";
+                _timer.Stop();
+                button.Background = new SolidColorBrush(Colors.Red);
+                return;
             } else if (s > answer) {
                 Notification.Text = "もっと小さい数字です" + count + "回目";
             } else {
                 Notification.Text = "もっと大きい数字です" + count + "回目";
             }
-            
+
+            button.Background = new SolidColorBrush(Colors.White);
 
         }
 

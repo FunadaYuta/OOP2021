@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:NumberGame="clr-namespace:NumberGame"
+        xmlns:Space="clr-namespace:NumberGame"
         xmlns:local="clr-namespace:NumberGame"
         mc:Ignorable="d"
         Title="MainWindow" Height="520" Width="410">
@@ -27,36 +29,37 @@
             <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
 
-        <Button Content="1" Grid.Row="0" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="2" Grid.Row="0" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="3" Grid.Row="0" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="4" Grid.Row="0" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="5" Grid.Row="0" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="6" Grid.Row="1" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="7" Grid.Row="1" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="8" Grid.Row="1" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="9" Grid.Row="1" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="10" Grid.Row="1" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="11" Grid.Row="2" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="12" Grid.Row="2" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="13" Grid.Row="2" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="14" Grid.Row="2" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="15" Grid.Row="2" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="16" Grid.Row="3" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="17" Grid.Row="3" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="18" Grid.Row="3" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="19" Grid.Row="3" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="20" Grid.Row="3" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="21" Grid.Row="4" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="22" Grid.Row="4" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="23" Grid.Row="4" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="24" Grid.Row="4" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="25" Grid.Row="4" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="1" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="2" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="3" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="4" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="5" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="6" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="7" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="8" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="9" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="10" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="11" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="12" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="13" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="14" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="15" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="16" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="17" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="18" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="19" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="20" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="21" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="22" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="23" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="24" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
+        <Button Content="25" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
         <TextBlock x:Name="Notification" FontSize="28" Grid.Row="5" Grid.ColumnSpan="5"/>
-        <Viewbox Stretch = "Uniform" Grid.Row = "6"  Grid.ColumnSpan="6" VerticalAlignment = "Center" >
+        <Viewbox Stretch = "Uniform" Grid.Row = "6"  Grid.ColumnSpan="3" VerticalAlignment = "Center" >
             <StackPanel Orientation = "Horizontal" >
                 <TextBlock x:Name = "uxClock" TextWrapping = "Wrap" Text = "00:00:00"  FontFamily = "Harlow Solid Italic" FontSize = "50" Height = "59" Width = "194" />
-            </StackPanel>
+            </StackPanel>   
         </Viewbox>
+        
     </Grid>
 </Window>
