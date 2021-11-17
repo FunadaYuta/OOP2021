@@ -22,9 +22,47 @@ namespace NumberGame {
     /// </summary>
     public partial class MainWindow : Window {
         public MainWindow() {
-            InitializeComponent();
             
+            InitializeComponent();
+            Random random = new Random();
+            
+           
+
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            List<Button> buttons = new List<Button>();
+
+
+            Random random = new Random();
+            answer = random.Next(row * column) + 1;
+
+            for(int i = 0;i < row; i++) {
+                grid.RowDefinitions.Add(new RowDefinition());
+            }
+            for(int j = 0; j < column; j++) {
+                grid.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+            int cont = 0;
+            for(int i = 0;i < row; i++) {
+                for(int j = 0;j < column; j++) {
+                    var bt = new Button();
+                    bt.Width = MainWind.Width / column;
+                    bt.Height = MainWind.Width / row;
+                    bt.Click += Button_Click;
+                    bt.Content = ++cont;
+                    Grid.SetRow(bt, i);
+                    Grid.SetColumn(bt, j);
+                    buttons.Add(bt);
+                }
+            }
+            buttons.ForEach(bt => grid.Children.Add(bt));
+            MainWind.Height += textDisp.Height + 30;
+        }
+
+
+        const int row = 7;
+        const int column = 9;
         DateTime dt;
         int count = 0;
         int answer = 0;
@@ -55,10 +93,9 @@ namespace NumberGame {
 
         private void Button_Click(object sender, RoutedEventArgs e) {
 
-            Notification.Text = "";
+            //Notification.Text = "";
             if (count == 0) {
-                Random rm = new Random();
-                answer = rm.Next(1, 26);
+               
                 dt = DateTime.Now;
                 InitializeTimer();
             }
@@ -68,17 +105,17 @@ namespace NumberGame {
             
             int s = int.Parse(button.Content.ToString());
             if (s == answer) {
-                Notification.Text = count + "回目" + answer + "が正解です";
+                textDisp.Text = count + "回目 : " + answer + "が正解です";
                 _timer.Stop();
                 button.Background = new SolidColorBrush(Colors.Red);
                 return;
             } else if (s > answer) {
-                Notification.Text = "もっと小さい数字です" + count + "回目";
+                textDisp.Text = count + "回目 : " + "もっと小さい数字です";
             } else {
-                Notification.Text = "もっと大きい数字です" + count + "回目";
+                textDisp.Text = count + "回目 : " + "もっと大きい数字です";
             }
 
-            button.Background = new SolidColorBrush(Colors.White);
+                button.Background = new SolidColorBrush(Colors.White);
 
         }
 

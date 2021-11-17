@@ -7,59 +7,12 @@
         xmlns:Space="clr-namespace:NumberGame"
         xmlns:local="clr-namespace:NumberGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="520" Width="410">
-    <Grid>
-        <Grid.RowDefinitions>
-            
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-
-        </Grid.RowDefinitions>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="80"/>
-        </Grid.ColumnDefinitions>
-
-        <Button Content="1" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="2" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="3" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="4" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="5" FontSize="{StaticResource ButtonFontSize}" Grid.Row="0" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="6" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="7" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="8" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="9" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="10" FontSize="{StaticResource ButtonFontSize}" Grid.Row="1" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="11" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="12" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="13" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="14" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="15" FontSize="{StaticResource ButtonFontSize}" Grid.Row="2" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="16" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="17" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="18" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="19" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="20" FontSize="{StaticResource ButtonFontSize}" Grid.Row="3" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="21" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="0" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="22" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="1" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="23" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="2" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="24" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="3" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <Button Content="25" FontSize="{StaticResource ButtonFontSize}" Grid.Row="4" Grid.Column="4" Height="{StaticResource ButtonHeight}" Width="{StaticResource ButtonWidth}" Click="Button_Click"/>
-        <TextBlock x:Name="Notification" FontSize="28" Grid.Row="5" Grid.ColumnSpan="5"/>
-        <Viewbox Stretch = "Uniform" Grid.Row = "6"  Grid.ColumnSpan="3" VerticalAlignment = "Center" >
-            <StackPanel Orientation = "Horizontal" >
-                <TextBlock x:Name = "uxClock" TextWrapping = "Wrap" Text = "00:00:00"  FontFamily = "Harlow Solid Italic" FontSize = "50" Height = "59" Width = "194" />
-            </StackPanel>   
-        </Viewbox>
-        
-    </Grid>
+        x:Name="MainWind"
+        Title="MainWindow" Height="520" Width="410" Loaded="Window_Loaded">
+    <StackPanel>
+        <Grid x:Name="grid"/>
+        <TextBlock x:Name="textDisp" Height="50" FontSize="30"
+                   TextWrapping="Wrap"/>
+        <TextBlock x:Name = "uxClock" TextWrapping = "Wrap" Text = "00:00:00"  FontFamily = "Harlow Solid Italic" FontSize = "50" Height = "59" Width = "194" />
+    </StackPanel>
 </Window>
