@@ -22,13 +22,15 @@ namespace NumberGame {
     /// </summary>
     public partial class MainWindow : Window {
         public MainWindow() {
-            
             InitializeComponent();
-            Random random = new Random();
-            
-           
-
         }
+
+        private const int row = 7;  //列数
+        private const int column = 9;   //行数
+        DateTime dt;
+        private int count = 0;
+        private int answer = 0;
+        private DispatcherTimer _timer;
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             List<Button> buttons = new List<Button>();
@@ -43,14 +45,17 @@ namespace NumberGame {
             for(int j = 0; j < column; j++) {
                 grid.ColumnDefinitions.Add(new ColumnDefinition());
             }
-            int cont = 0;
+            int button_content = 0;
             for(int i = 0;i < row; i++) {
                 for(int j = 0;j < column; j++) {
-                    var bt = new Button();
-                    bt.Width = MainWind.Width / column;
-                    bt.Height = MainWind.Width / row;
+
+                    Button bt = new Button {
+                        Width = MainWind.Width / column,
+                        Height = MainWind.Width / row,
+                        Content = ++button_content
+                    };
+
                     bt.Click += Button_Click;
-                    bt.Content = ++cont;
                     Grid.SetRow(bt, i);
                     Grid.SetColumn(bt, j);
                     buttons.Add(bt);
@@ -59,16 +64,7 @@ namespace NumberGame {
             buttons.ForEach(bt => grid.Children.Add(bt));
             MainWind.Height += textDisp.Height + 30;
         }
-
-
-        const int row = 7;
-        const int column = 9;
-        DateTime dt;
-        int count = 0;
-        int answer = 0;
-
-        private DispatcherTimer _timer;
-
+        
         private void InitializeTimer() {
             // 優先順位を指定してタイマのインスタンスを生成
             _timer = new DispatcherTimer(DispatcherPriority.Background);
@@ -93,29 +89,34 @@ namespace NumberGame {
 
         private void Button_Click(object sender, RoutedEventArgs e) {
 
-            //Notification.Text = "";
+            //最初にボタンが押された場合
             if (count == 0) {
                
                 dt = DateTime.Now;
+                //タイマーを開始
                 InitializeTimer();
             }
+
             count++;
 
-            var button = (Button)sender;
-            
-            int s = int.Parse(button.Content.ToString());
-            if (s == answer) {
+            Button button = (Button)sender;
+
+            int button_content = int.Parse(button.Content.ToString());
+
+            //押したボタンの数値があたりの数値と等しい
+            if (button_content == answer) {
                 textDisp.Text = count + "回目 : " + answer + "が正解です";
                 _timer.Stop();
                 button.Background = new SolidColorBrush(Colors.Red);
                 return;
-            } else if (s > answer) {
-                textDisp.Text = count + "回目 : " + "もっと小さい数字です";
-            } else {
-                textDisp.Text = count + "回目 : " + "もっと大きい数字です";
             }
 
-                button.Background = new SolidColorBrush(Colors.White);
+            //等しくない場合
+            textDisp.Text = button_content > answer ?
+                string.Format("{0}回目: 小さい数字です", count) :
+                string.Format("{0}回目: 大きい数字です", count);
+
+            button.Background = new SolidColorBrush(Colors.White);
 
         }
 

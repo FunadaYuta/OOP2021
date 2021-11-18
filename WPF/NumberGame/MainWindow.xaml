@@ -13,6 +13,8 @@
         <Grid x:Name="grid"/>
         <TextBlock x:Name="textDisp" Height="50" FontSize="30"
                    TextWrapping="Wrap"/>
-        <TextBlock x:Name = "uxClock" TextWrapping = "Wrap" Text = "00:00:00"  FontFamily = "Harlow Solid Italic" FontSize = "50" Height = "59" Width = "194" />
+        <TextBlock x:Name = "uxClock" TextWrapping = "Wrap" Text = "00:00:00"
+                   FontFamily = "Harlow Solid Italic"
+                   FontSize = "50" Height = "59" Width = "194" />
     </StackPanel>
 </Window>
