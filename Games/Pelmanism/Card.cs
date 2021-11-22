@@ -7,25 +7,21 @@ using System.Windows.Forms;
 using System.Drawing;
 
 namespace Pelmanism {
-
     //カードクラス
-    class Card : Button{
+    class Card : Button {
         //カードの横幅と高さ
         private const int SizeW = 50, SizeH = 70;
 
         //カードの絵柄
-        public string Picture { get; set; }
-
-        //カードの状態
+        public Image Picture { get; set; }
+        //カードの状態(true:表 false:裏)
         public bool State { get; set; }
-
         //カード表面の色
         public Color OpenColor { get; } = Color.White;
-
         //カード裏面の色
         public Color CloseColor { get; } = Color.LightSeaGreen;
 
-        public Card(string picture) {
+        public Card(Image picture) {
             Picture = picture;
             State = false;
             Size = new Size(SizeW, SizeH);
@@ -36,27 +32,25 @@ namespace Pelmanism {
 
         //カードをオープンする
         public void Open() {
-            State = true;   //表
+            State = true; //表
+            Image = Picture;
+            Enabled = false; //選択不可
             BackColor = OpenColor;
-            Text = Picture;
-            Enabled = false;    //選択不可
         }
 
         //カードをクローズする
         public void Close() {
-            State = false;  //表
+            State = false; //裏
+            Image = Image.FromFile(@"close1.png");
+            Enabled = true; //選択不可
             BackColor = CloseColor;
-            Text = Picture;
-            Enabled = true;    //選択可能
         }
-
         //カードをひっくり返す
         public void Turn() {
-            if (State) 
+            if (State)
                 Close();    //裏にする
-            else 
+            else
                 Open();     //表にする
         }
-
     }
 }

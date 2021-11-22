@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Pelmanism {
     class Player {
-
-        private int nowOpenCardIndex1;  //1枚目に開いたカードの添え字
-        private int nowOpenCardIndex2;  //2枚目に開いたカードの添え字
+        private int nowOpenCardIndex1;  //今回１枚目に開いたカードの添え字
+        private int nowOpenCardIndex2;  //今回２枚目に開いたカードの添え字
 
         //前回１枚目に開いたカードの添え字
         public int BeforeOpenCardIndex1 { get; set; }
@@ -20,7 +19,7 @@ namespace Pelmanism {
 
         //コンストラクタ
         public Player() {
-            nowOpenCardIndex1 = nowOpenCardIndex2 = -1;
+            NowOpenCardIndex1 = NowOpenCardIndex2 = -1;
             BeforeOpenCardIndex1 = BeforeOpenCardIndex2 = -1;
             OpenCounter = 0;
         }
@@ -28,21 +27,14 @@ namespace Pelmanism {
         //今回１枚目に開いたカードの添え字
         public int NowOpenCardIndex1 {
             get { return nowOpenCardIndex1; }
-            set {
-                nowOpenCardIndex1 = value;
-                OpenCounter++;
-            }
+            set { nowOpenCardIndex1 = value; OpenCounter++; }
         }
 
-        //今回2枚目に開いたカードの添え字
+        //今回２枚目に開いたカードの添え字
         public int NowOpenCardIndex2 {
             get { return nowOpenCardIndex2; }
-            set {
-                nowOpenCardIndex2 = value;
-                OpenCounter++;
-            }
+            set { nowOpenCardIndex2 = value; OpenCounter++; }
         }
-
         //カードの情報をリセット
         public void Reset() {
             BeforeOpenCardIndex1 = NowOpenCardIndex1;
